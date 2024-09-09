@@ -1,0 +1,385 @@
+Sentence 1:
+
+Condition event(s): The purpose of the NAS security mode control procedure
+Expected operation(s): Take an EPS security context into use, initialise and start NAS signalling security between the UE and the MME with the corresponding EPS NAS keys and EPS security algorithms
+Relationship(s): The NAS security mode control procedure directly triggers the expected operations
+
+Sentence 2:
+
+Condition event(s): The network may initiate the security mode control procedure in order to change the NAS security algorithms for a current EPS security context already in use
+Expected operation(s): Change the NAS security algorithms for a current EPS security context already in use
+Relationship(s): The network initiating the security mode control procedure directly triggers the change of NAS security algorithms
+
+Sentence 3:
+
+Condition event(s): The network may initiate the security mode control procedure in order to change the value of uplink NAS COUNT used in the latest SECURITY MODE COMPLETE message
+Expected operation(s): Change the value of uplink NAS COUNT used in the latest SECURITY MODE COMPLETE message
+Relationship(s): The network initiating the security mode control procedure directly triggers the change of the uplink NAS COUNT value
+
+Sentence 4:
+
+Condition event(s): The network may initiate the security mode control procedure in order to request the UE radio capability ID from the UE
+Expected operation(s): Request the UE radio capability ID from the UE
+Relationship(s): The network initiating the security mode control procedure directly triggers the request for the UE radio capability ID
+
+Sentence 5:
+
+Condition event(s): The MME initiates the NAS security mode control procedure by sending a SECURITY MODE COMMAND message to the UE
+Expected operation(s): The MME starts timer T3460
+Relationship(s): The MME sending the SECURITY MODE COMMAND message directly triggers the start of timer T3460
+
+Sentence 6:
+
+Condition event(s): The security mode control procedure is initiated to take into use the EPS security context created after a successful execution of the EPS authentication procedure
+Expected operation(s): The MME shall reset the downlink NAS COUNT counter and use it to integrity protect the initial SECURITY MODE COMMAND message
+Relationship(s): The initiation of the security mode control procedure to take into use the specified EPS security context directly triggers the MME to reset and use the downlink NAS COUNT counter
+
+Sentence 7:
+
+Condition event(s): Upon receipt of TRACKING AREA UPDATE REQUEST message including a GPRS ciphering key sequence number IE, if the MME wishes to create a mapped EPS security context
+Expected operation(s): The MME shall reset the downlink NAS COUNT counter and use it to integrity protect the initial SECURITY MODE COMMAND message
+Relationship(s): The receipt of the TRACKING AREA UPDATE REQUEST message with the specified condition directly triggers the MME to reset and use the downlink NAS COUNT counter
+
+Sentence 8:
+
+Condition event(s): The MME sends the SECURITY MODE COMMAND message
+Expected operation(s): The MME shall send the SECURITY MODE COMMAND message unciphered, but shall integrity protect the message with the NAS integrity key based on KASME or mapped K'ASME indicated by the eKSI included in the message
+Relationship(s): The MME sending the SECURITY MODE COMMAND message directly triggers the expected operation
+
+Sentence 9:
+
+Condition event(s): The security mode control procedure is initiated during an attach procedure for emergency bearer services if no shared EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified attach procedure directly triggers the MME to perform the expected operations
+
+Sentence 10:
+
+Condition event(s): The security mode control procedure is initiated during an attach procedure for access to RLOS if no valid EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified attach procedure directly triggers the MME to perform the expected operations
+
+Sentence 11:
+
+Condition event(s): The security mode control procedure is initiated during a tracking area updating procedure for a UE that has a PDN connection for emergency bearer services if no shared EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified tracking area updating procedure directly triggers the MME to perform the expected operations
+
+Sentence 12:
+
+Condition event(s): The security mode control procedure is initiated during a tracking area updating procedure for a UE that has a PDN connection for access to RLOS if no valid EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified tracking area updating procedure directly triggers the MME to perform the expected operations
+
+Sentence 13:
+
+Condition event(s): The security mode control procedure is initiated during a service request procedure for a UE that has a PDN connection for emergency bearer services if no shared EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified service request procedure directly triggers the MME to perform the expected operations
+
+Sentence 14:
+
+Condition event(s): The security mode control procedure is initiated during a service request procedure for a UE that has a PDN connection for access to RLOS if no valid EPS security context is available
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure during the specified service request procedure directly triggers the MME to perform the expected operations
+
+Sentence 15:
+
+Condition event(s): The security mode control procedure is initiated after a failed authentication procedure for a UE that has a PDN connection for emergency bearer services or that is establishing a PDN connection for emergency bearer services, if continued usage of a shared security context is not possible
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure after the specified failed authentication procedure directly triggers the MME to perform the expected operations
+
+Sentence 16:
+
+Condition event(s): The security mode control procedure is initiated after a failed authentication procedure for a UE that has a PDN connection for access to RLOS or that is establishing a PDN connection for access to RLOS, if continued usage of a valid security context is not possible
+Expected operation(s): The MME shall create a locally generated KASME and send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): The initiation of the security mode control procedure after the specified failed authentication procedure directly triggers the MME to perform the expected operations
+
+Sentence 17:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during an attach procedure for emergency bearer services
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the attach procedure for emergency bearer services directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 18:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during an attach procedure for access to RLOS
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the attach procedure for access to RLOS directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 19:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during a tracking area updating procedure when the UE has a PDN connection for emergency bearer services
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the tracking area updating procedure when the UE has a PDN connection for emergency bearer services directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 20:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during a tracking area updating procedure when the UE has a PDN connection for access to RLOS
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the tracking area updating procedure when the UE has a PDN connection for access to RLOS directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 21:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during a service request procedure when the UE has a PDN connection for emergency bearer services
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the service request procedure when the UE has a PDN connection for emergency bearer services directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 22:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms during a service request procedure when the UE has a PDN connection for access to RLOS
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters during the service request procedure when the UE has a PDN connection for access to RLOS directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 23:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms after an authentication procedure when the UE has a PDN connection for emergency bearer services or is establishing a PDN connection for emergency bearer services
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters after the authentication procedure when the UE has a PDN connection for emergency bearer services or is establishing a PDN connection for emergency bearer services directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 24:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms after an authentication procedure when the UE has a PDN connection for access to RLOS or is establishing a PDN connection for access to RLOS
+Expected operation(s): The UE shall process the SECURITY MODE COMMAND message and, if accepted, create a locally generated KASME
+Relationship(s): The receipt of the SECURITY MODE COMMAND message with the specified parameters after the authentication procedure when the UE has a PDN connection for access to RLOS or is establishing a PDN connection for access to RLOS directly triggers the UE to process the message and create a locally generated KASME if accepted
+
+Sentence 25:
+
+Condition event(s): The MME receives a TRACKING AREA UPDATE REQUEST message including a GPRS ciphering key sequence number IE
+Expected operation(s): If the MME does not have the valid current EPS security context indicated by the UE, the MME shall either indicate the use of the new mapped EPS security context to the UE by setting the type of security context flag in the NAS key set identifier IE to "mapped security context" and the KSI value related to the security context of the source system, or set the KSI value "000" in the NAS key set identifier IE if the MME sets EIA0 and EEA0 as the selected NAS security algorithms for a UE that has a PDN connection for emergency bearer services
+Relationship(s): The receipt of the TRACKING AREA UPDATE REQUEST message with the specified IE triggers the MME to perform the expected operations if the specified conditions are met
+
+Sentence 26:
+
+Condition event(s): The MME has a current mapped EPS security context with the UE and wants to take the native EPS security context into use
+Expected operation(s): The MME shall include the eKSI that indicates the native EPS security context in the SECURITY MODE COMMAND message
+Relationship(s): The MME's desire to take the native EPS security context into use when having a current mapped EPS security context with the UE triggers the MME to include the eKSI indicating the native EPS security context in the SECURITY MODE COMMAND message
+
+Sentence 27:
+
+Condition event(s): The MME sends the SECURITY MODE COMMAND message
+Expected operation(s): The MME shall include the replayed security capabilities of the UE (including the security capabilities with regard to NAS, RRC and UP (user plane) ciphering as well as NAS and RRC integrity, and other possible target network security capabilities, i.e. UTRAN/GERAN if the UE included them in the message to network), the selected NAS ciphering and integrity algorithms and the Key Set Identifier (eKSI)
+Relationship(s): The MME sending the SECURITY MODE COMMAND message triggers the inclusion of the specified information in the message
+
+Sentence 28:
+
+Condition event(s): The MME creates a mapped EPS security context and the UE included the nonceUE in the message to the network
+Expected operation(s): The MME shall include the replayed nonceUE when creating a mapped EPS security context
+Relationship(s): The MME creating a mapped EPS security context and the UE including the nonceUE in the message to the network trigger the MME to include the replayed nonceUE in the mapped EPS security context
+
+Sentence 29:
+
+Condition event(s): The MME supports handling of UE additional security capabilities and the UE included a UE additional security capability IE in the message to the network
+Expected operation(s): The MME shall include the replayed additional security capabilities of the UE
+Relationship(s): The MME's support for handling UE additional security capabilities and the UE's inclusion of the UE additional security capability IE in the message to the network trigger the MME to include the replayed additional security capabilities of the UE in the SECURITY MODE COMMAND message
+
+Sentence 30:
+
+Condition event(s): The MME creates a mapped EPS security context during inter-system change from A/Gb mode to S1 mode or Iu mode to S1 mode in EMM-IDLE mode
+Expected operation(s): The MME shall include both the nonceMME and the nonceUE when creating a mapped EPS security context
+Relationship(s): The MME creating a mapped EPS security context during the specified inter-system change triggers the MME to include both the nonceMME and the nonceUE in the mapped EPS security context
+
+Sentence 31:
+
+Condition event(s): The MME initiates a SECURITY MODE COMMAND in order to change the NAS security algorithms for a current EPS security context already in use
+Expected operation(s): The MME re-derives the NAS keys from KASME with the new NAS algorithm identities as input and provides the new NAS algorithm identities within the SECURITY MODE COMMAND message
+Relationship(s): The MME initiating a SECURITY MODE COMMAND to change the NAS security algorithms triggers the MME to re-derive the NAS keys with the new algorithm identities and include the new algorithm identities in the SECURITY MODE COMMAND message
+
+Sentence 32:
+
+Condition event(s): The MME initiates a SECURITY MODE COMMAND in order to change the NAS security algorithms for a current EPS security context already in use
+Expected operation(s): The MME shall set the security header type of the message to "integrity protected with new EPS security context"
+Relationship(s): The MME initiating a SECURITY MODE COMMAND to change the NAS security algorithms triggers the MME to set the security header type of the message to "integrity protected with new EPS security context"
+
+Sentence 33:
+
+Condition event(s): During an ongoing attach or tracking area updating procedure, the MME initiates a SECURITY MODE COMMAND (i.e. after receiving the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message, but before sending a response to that message) and the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message is received without integrity protection or does not successfully pass the integrity check at the MME
+Expected operation(s): The MME shall calculate the HASHMME of the entire plain ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message and include the HASHMME in the SECURITY MODE COMMAND message
+Relationship(s): The MME initiating a SECURITY MODE COMMAND during an ongoing attach or tracking area updating procedure, and receiving an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message without integrity protection or that fails the integrity check triggers the MME to calculate the HASHMME of the plain message and include it in the SECURITY MODE COMMAND message
+
+Sentence 34:
+
+Condition event(s): The MME sends the SECURITY MODE COMMAND message
+Expected operation(s): The MME may request the UE to include its IMEISV in the SECURITY MODE COMPLETE message
+Relationship(s): The MME sending the SECURITY MODE COMMAND message allows the MME to optionally request the UE to include its IMEISV in the SECURITY MODE COMPLETE message
+
+Sentence 35:
+
+Condition event(s): The NAS security mode control procedure is initiated during an ongoing attach procedure in WB-S1 mode, the network supports RACS, the UE has set the RACS bit to "RACS supported" in the UE network capability IE of the ATTACH REQUEST message, and the UE has set the URCIDA bit to "UE radio capability ID available" in the UE radio capability ID availability IE of the ATTACH REQUEST message
+Expected operation(s): The MME shall request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+Relationship(s): The initiation of the NAS security mode control procedure during an attach procedure in WB-S1 mode, along with the specified network support and UE indications, triggers the MME to request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+
+Sentence 36:
+
+Condition event(s): The NAS security mode control procedure is initiated during an ongoing tracking area updating procedure in WB-S1 mode, the network supports RACS, the UE has set the RACS bit to "RACS supported" in the UE network capability IE of the TRACKING AREA UDPATE REQUEST message, and the UE has set the URCIDA bit to "UE radio capability ID available" in the UE radio capability ID availability IE of the TRACKING AREA UPDATE REQUEST message
+Expected operation(s): The MME may request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+Relationship(s): The initiation of the NAS security mode control procedure during a tracking area updating procedure in WB-S1 mode, along with the specified network support and UE indications, allows the MME to optionally request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+
+Sentence 37:
+
+Condition event(s): The NAS security mode control procedure is initiated during an ongoing tracking area updating procedure in WB-S1 mode, the network supports RACS, the UE has set the RACS bit to "RACS supported" in the UE network capability IE of the TRACKING AREA UDPATE REQUEST message, the UE has set the URCIDA bit to "UE radio capability ID available" in the UE radio capability ID availability IE of the TRACKING AREA UPDATE REQUEST message, and no UE radio capability ID is available in the UE context in the MME
+Expected operation(s): The MME shall request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+Relationship(s): The initiation of the NAS security mode control procedure during a tracking area updating procedure in WB-S1 mode, along with the specified network support, UE indications, and the absence of a UE radio capability ID in the MME's UE context, triggers the MME to request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+
+Sentence 38:
+
+Condition event(s): The UE receives the SECURITY MODE COMMAND message
+Expected operation(s): The UE shall check whether the security mode command can be accepted or not by performing the integrity check of the message and by checking that the received replayed UE security capabilities, the received replayed UE additional security capabilities (if included in the SECURITY MODE COMMAND message), and the received nonceUE have not been altered compared to the latest values that the UE sent to the network
+Relationship(s): The UE's receipt of the SECURITY MODE COMMAND message triggers the UE to perform the specified checks to determine if the security mode command can be accepted
+
+Sentence 39:
+
+Condition event(s): The UE does not want to re-generate the K'ASME (i.e. the SECURITY MODE COMMAND message is to derive and take into use a mapped EPS security context and the eKSI matches the current EPS security context, if it is a mapped EPS security context)
+Expected operation(s): The UE is not required to perform the checking of the received nonceUE
+Relationship(s): The UE's unwillingness to re-generate the K'ASME under the specified conditions exempts the UE from checking the received nonceUE
+
+Sentence 40:
+
+Condition event(s): The UE has a PDN connection for emergency bearer services established, the UE is establishing a PDN connection for emergency bearer services, or the UE is requesting attach for access to RLOS
+Expected operation(s): The UE is not required to locally re-generate the KASME (i.e. the SECURITY MODE COMMAND message is used to derive and take into use a native EPS security context where the KSI value "000" is included in the NAS key set identifier IE and the EIA0 and EEA0 are included as the selected NAS security algorithms)
+Relationship(s): The UE having a PDN connection for emergency bearer services, establishing a PDN connection for emergency bearer services, or requesting attach for access to RLOS exempts the UE from locally re-generating the KASME under the specified conditions
+
+Sentence 41:
+
+Condition event(s): The UE receives a SECURITY MODE COMMAND message indicating the "null integrity protection algorithm" EIA0 as the selected NAS integrity algorithm
+Expected operation(s): The UE shall accept the SECURITY MODE COMMAND message only if the message is received for a UE that has a PDN connection for emergency bearer services established, or a UE that is attached for access to RLOS, or a UE that is establishing a PDN connection for emergency bearer services or a UE that is requesting attach for access to RLOS
+Relationship(s): The UE's receipt of a SECURITY MODE COMMAND message indicating EIA0 as the selected NAS integrity algorithm triggers the UE to accept the message only if the UE meets one of the specified conditions
+
+Sentence 42:
+
+Condition event(s): The type of security context flag included in the SECURITY MODE COMMAND message is set to "native security context" and the KSI matches a valid non-current native EPS security context held in the UE while the UE has a mapped EPS security context as the current EPS security context
+Expected operation(s): The UE shall take the non-current native EPS security context into use which then becomes the current native EPS security context and delete the mapped EPS security context
+Relationship(s): The presence of the specified type of security context flag and KSI in the SECURITY MODE COMMAND message, along with the UE's current security context state, triggers the UE to take the non-current native EPS security context into use and delete the mapped EPS security context
+
+Sentence 43:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted
+Expected operation(s): The UE shall take the EPS security context indicated in the message into use
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message triggers the UE to take the indicated EPS security context into use
+
+Sentence 44:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted and is received in order to take an EPS security context into use created after a successful execution of the EPS authentication procedure
+Expected operation(s): The UE shall reset the uplink NAS COUNT counter
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message that is received to take into use an EPS security context created after a successful EPS authentication procedure triggers the UE to reset the uplink NAS COUNT counter
+
+Sentence 45:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted and includes the type of security context flag set to "mapped security context" in the NAS key set identifier IE, and the eKSI does not match the current EPS security context, if it is a mapped EPS security context
+Expected operation(s): The UE shall reset the uplink NAS COUNT counter
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message with the specified type of security context flag and eKSI that does not match the current mapped EPS security context triggers the UE to reset the uplink NAS COUNT counter
+
+Sentence 46:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted and a new EPS security context is taken into use, and the SECURITY MODE COMMAND message does not indicate the "null integrity protection algorithm" EIA0 as the selected NAS integrity algorithm
+Expected operation(s): If the SECURITY MODE COMMAND message has been successfully integrity checked using an estimated downlink NAS COUNT equal 0, then the UE shall set the downlink NAS COUNT of this new EPS security context to 0; otherwise, the UE shall set the downlink NAS COUNT of this new EPS security context to the downlink NAS COUNT that has been used for the successful integrity checking of the SECURITY MODE COMMAND message
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message, taking a new EPS security context into use, and the message not indicating EIA0 triggers the UE to set the downlink NAS COUNT of the new EPS security context based on the integrity check of the SECURITY MODE COMMAND message
+
+Sentence 47:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted
+Expected operation(s): The UE shall send a SECURITY MODE COMPLETE message integrity protected with the selected NAS integrity algorithm and the EPS NAS integrity key based on the KASME or mapped K'ASME if the type of security context flag is set to "mapped security context" indicated by the eKSI
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message triggers the UE to send a SECURITY MODE COMPLETE message with the specified integrity protection
+
+Sentence 48:
+
+Condition event(s): The SECURITY MODE COMMAND message includes the type of security context flag set to "mapped security context" in the NAS key set identifier IE, the nonceMME and the nonceUE
+Expected operation(s): The UE shall either generate K'ASME from both the nonceMME and the nonceUE as indicated in 3GPP TS 33.401 [19], or check whether the SECURITY MODE COMMAND message indicates the eKSI of the current EPS security context, if it is a mapped EPS security context, in order not to re-generate the K'ASME
+Relationship(s): The presence of the specified type of security context flag, nonceMME, and nonceUE in the SECURITY MODE COMMAND message triggers the UE to either generate K'ASME or check the eKSI to avoid re-generating K'ASME
+
+Sentence 49:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted
+Expected operation(s): The UE shall cipher the SECURITY MODE COMPLETE message with the selected NAS ciphering algorithm and the EPS NAS ciphering key based on the KASME or mapped K'ASME indicated by the eKSI
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message triggers the UE to cipher the SECURITY MODE COMPLETE message with the specified algorithms and keys
+
+Sentence 50:
+
+Condition event(s): The SECURITY MODE COMMAND message can be accepted
+Expected operation(s): The UE shall set the security header type of the SECURITY MODE COMPLETE message to "integrity protected and ciphered with new EPS security context"
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message triggers the UE to set the security header type of the SECURITY MODE COMPLETE message to the specified value
+
+Sentence 51:
+
+Condition event(s): The UE accepts the SECURITY MODE COMMAND message
+Expected operation(s): From this time onward, the UE shall cipher and integrity protect all NAS signalling messages with the selected NAS ciphering and NAS integrity algorithms
+Relationship(s): The UE's acceptance of the SECURITY MODE COMMAND message triggers the UE to cipher and integrity protect all subsequent NAS signalling messages with the selected algorithms
+
+Sentence 52:
+
+Condition event(s): The MME indicated in the SECURITY MODE COMMAND message that the IMEISV is requested
+Expected operation(s): The UE shall include its IMEISV in the SECURITY MODE COMPLETE message
+Relationship(s): The MME's indication in the SECURITY MODE COMMAND message that the IMEISV is requested triggers the UE to include its IMEISV in the SECURITY MODE COMPLETE message
+
+Sentence 53:
+
+Condition event(s): In WB-S1 mode, the MME indicated in the SECURITY MODE COMMAND message that the UE radio capability ID is requested and the UE has an applicable network-assigned UE radio capability ID for the current UE radio configuration in the selected PLMN
+Expected operation(s): The UE shall include the applicable network-assigned UE radio capability ID in the UE radio capability ID IE of the SECURITY MODE COMPLETE message
+Relationship(s): The MME's indication in the SECURITY MODE COMMAND message that the UE radio capability ID is requested, along with the UE having an applicable network-assigned UE radio capability ID, triggers the UE to include the applicable network-assigned UE radio capability ID in the SECURITY MODE COMPLETE message
+
+Sentence 54:
+
+Condition event(s): In WB-S1 mode, the MME indicated in the SECURITY MODE COMMAND message that the UE radio capability ID is requested, the UE does not have an applicable network-assigned UE radio capability ID for the current UE radio configuration in the selected PLMN, and the UE has an applicable manufacturer-assigned UE radio capability ID for the current UE radio configuration
+Expected operation(s): The UE shall include the applicable manufacturer-assigned UE radio capability ID in the UE radio capability ID IE of the SECURITY MODE COMPLETE message
+Relationship(s): The MME's indication in the SECURITY MODE COMMAND message that the UE radio capability ID is requested, along with the UE not having an applicable network-assigned UE radio capability ID but having an applicable manufacturer-assigned UE radio capability ID, triggers the UE to include the applicable manufacturer-assigned UE radio capability ID in the SECURITY MODE COMPLETE message
+
+Sentence 55:
+
+Condition event(s): During an ongoing attach or tracking area updating procedure, the SECURITY MODE COMMAND message includes a HASHMME, and the UE had sent an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message to initiate the procedure
+Expected operation(s): The UE shall compare HASHMME with a hash value locally calculated from the entire plain ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message
+Relationship(s): The presence of HASHMME in the SECURITY MODE COMMAND message during an ongoing attach or tracking area updating procedure triggers the UE to compare HASHMME with a locally calculated hash value from the entire plain message that initiated the procedure
+
+Sentence 56:
+
+Condition event(s): HASHMME and the locally calculated hash value are different
+Expected operation(s): The UE shall include the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message which the UE had previously sent in the Replayed NAS message container IE of the SECURITY MODE COMPLETE message
+Relationship(s): The mismatch between HASHMME and the locally calculated hash value triggers the UE to include the complete initial message in the Replayed NAS message container IE of the SECURITY MODE COMPLETE message
+
+Sentence 57:
+
+Condition event(s): The MME receives the SECURITY MODE COMPLETE message
+Expected operation(s): The MME shall stop timer T3460
+Relationship(s): The MME's receipt of the SECURITY MODE COMPLETE message triggers the MME to stop timer T3460
+
+Sentence 58:
+
+Condition event(s): The MME receives the SECURITY MODE COMPLETE message
+Expected operation(s): From this time onward, the MME shall integrity protect and encipher all signalling messages with the selected NAS integrity and ciphering algorithms
+Relationship(s): The MME's receipt of the SECURITY MODE COMPLETE message triggers the MME to integrity protect and encipher all subsequent signalling messages with the selected algorithms
+
+Sentence 59:
+
+Condition event(s): The SECURITY MODE COMPLETE message contains a Replayed NAS container message IE with an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message
+Expected operation(s): The MME shall complete the ongoing attach or tracking area updating procedure by considering the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message contained in the Replayed NAS message container IE as the message that triggered the procedure
+Relationship(s): The presence of an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS container message IE of the SECURITY MODE COMPLETE message triggers the MME to complete the ongoing procedure using that message as the trigger
+
+Sentence 60:
+
+Condition event(s): The security mode command cannot be accepted
+Expected operation(s): The UE shall send a SECURITY MODE REJECT message
+Relationship(s): The UE's inability to accept the security mode command triggers the UE to send a SECURITY MODE REJECT message
+
+Sentence 61:
+
+Condition event(s): The UE sends a SECURITY MODE REJECT message
+Expected operation(s): The SECURITY MODE REJECT message contains an EMM cause that typically indicates one of the following cause values: #23: UE security capabilities mismatch; #24: security mode rejected, unspecified
+Relationship(s): The UE sending a SECURITY MODE REJECT message triggers the inclusion of an EMM cause in the message, typically indicating one of the specified cause values
+
+Sentence 62:
+
+Condition event(s): The MME receives the SECURITY MODE REJECT message
+Expected operation(s): Upon receipt of the SECURITY MODE REJECT message, the MME shall stop timer T3460
+Relationship(s): The MME's receipt of the SECURITY MODE REJECT message triggers the MME to stop timer T3460
+
+Sentence 63:
+
+Condition event(s): The MME receives the SECURITY MODE REJECT message
+Expected operation(s): The MME shall also abort the ongoing procedure that triggered the initiation of the NAS security mode control procedure
+Relationship(s): The MME's receipt of the SECURITY MODE REJECT message triggers the MME to abort the ongoing procedure that triggered the NAS security mode control procedure
+
+Sentence 64:
+
+Condition event(s): The UE sends a SECURITY MODE REJECT message
+Expected operation(s): Both the UE and the MME shall apply the EPS security context in use before the initiation of the security mode control procedure, if any, to protect the SECURITY MODE REJECT message and any other subsequent messages according to the rules in subclauses 4.4.4 and 4.4.5
+Relationship(s): The UE sending a SECURITY MODE REJECT message triggers both the UE and the MME to apply the previous EPS security context, if any, to protect the SECURITY MODE REJECT message and subsequent messages according to the specified rules
+
+
