@@ -1,0 +1,877 @@
+
+
+Test Procedure for Sentence 1:
+Original Extracted Information:
+Condition event(s): NAS security mode control procedure is initiated
+Expected operation(s): Take an EPS security context into use, initialise and start NAS signalling security between the UE and the MME with the corresponding EPS NAS keys and EPS security algorithms
+Relationship(s): Direct initiation triggers the use of EPS security context and security algorithms
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 1 Behavior
+
+Preconditions:
+1. The UE and MME are in a state where the NAS security mode control procedure can be initiated.
+2. The UE and MME have established an initial NAS connection without security.
+3. The MME has the necessary EPS security context and algorithms available for use.
+
+Test Steps:
+1. The MME sends a Security Mode Command (SMC) message to the UE, indirectly triggering the NAS security mode control procedure.
+2. The UE receives the SMC message and responds with a Security Mode Complete (SMC) message, indicating acceptance of the security context and algorithms.
+3. The MME processes the SMC message from the UE and updates its state to reflect the use of the EPS security context and algorithms.
+4. The MME sends a subsequent NAS message (e.g., Attach Accept) to the UE, encrypted using the newly established security context.
+5. The UE receives and decrypts the subsequent NAS message, verifying that the EPS security context and algorithms are in use.
+
+Expected Results:
+1. The NAS security mode control procedure is initiated as a result of the MME sending the SMC message.
+2. The UE and MME successfully take the EPS security context into use.
+3. NAS signalling security is initialized and started between the UE and the MME with the corresponding EPS NAS keys and EPS security algorithms.
+4. Subsequent NAS messages are encrypted and decrypted correctly using the established security context.
+
+Postconditions:
+1. The UE and MME are in a secure NAS signalling state with the EPS security context and algorithms in use.
+2. Any temporary test data or configurations are reset to their original state.
+==================================================
+
+
+Test Procedure for Sentence 2:
+Original Extracted Information:
+Condition event(s): Network may initiate the security mode control procedure
+Expected operation(s): Change the NAS security algorithms for a current EPS security context already in use, change the value of uplink NAS COUNT, request the UE radio capability ID from the UE
+Relationship(s): Network initiation triggers specific changes and requests
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 2 Behavior
+
+Preconditions:
+1. The UE is registered with the network and has an established EPS security context.
+2. The network is configured to initiate the security mode control procedure under specific conditions.
+3. The UE has a valid radio capability ID that can be requested by the network.
+
+Test Steps:
+1. Simulate a condition that indirectly triggers the network to initiate the security mode control procedure. This can be done by sending a specific signaling message or by altering the network configuration to simulate a security context change requirement.
+2. Observe the network's response to the simulated condition.
+3. Check if the network sends a Security Mode Command (SMC) message to the UE.
+4. Verify that the SMC message includes a request to change the NAS security algorithms for the current EPS security context.
+5. Verify that the SMC message includes a request to update the uplink NAS COUNT value.
+6. Verify that the SMC message includes a request for the UE radio capability ID.
+7. Observe the UE's response to the SMC message.
+8. Check if the UE sends a Security Mode Complete (SMC) message back to the network, confirming the changes and providing the requested radio capability ID.
+
+Expected Results:
+1. The network initiates the security mode control procedure by sending an SMC message to the UE.
+2. The SMC message contains instructions to change the NAS security algorithms for the current EPS security context.
+3. The SMC message contains instructions to update the uplink NAS COUNT value.
+4. The SMC message contains a request for the UE radio capability ID.
+5. The UE responds with an SMC message that confirms the changes and includes the requested radio capability ID.
+
+Postconditions:
+1. The UE and network have updated the NAS security algorithms and uplink NAS COUNT value as per the SMC message.
+2. The UE has provided its radio capability ID to the network.
+3. The network and UE are in a synchronized state with the new security context and radio capability information.
+==================================================
+
+
+Test Procedure for Sentence 3:
+Original Extracted Information:
+Condition event(s): MME initiates the NAS security mode control procedure
+Expected operation(s): Send a SECURITY MODE COMMAND message to the UE, start timer T3460
+Relationship(s): MME initiation directly triggers message sending and timer start
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 3 Behavior
+
+Preconditions:
+1. The MME and UE are in a state where the NAS security mode control procedure can be initiated (e.g., after successful NAS registration).
+2. The MME and UE are connected and ready to exchange NAS messages.
+3. The MME has the necessary security context to initiate the NAS security mode control procedure.
+
+Test Steps:
+1. Simulate a scenario where the MME needs to initiate the NAS security mode control procedure (e.g., after a successful NAS registration or during a re-establishment procedure).
+2. Monitor the MME for the initiation of the NAS security mode control procedure.
+3. Observe the MME to ensure it sends the SECURITY MODE COMMAND message to the UE.
+4. Verify that the MME starts timer T3460 upon sending the SECURITY MODE COMMAND message.
+
+Expected Results:
+1. The MME initiates the NAS security mode control procedure as expected.
+2. The MME sends the SECURITY MODE COMMAND message to the UE.
+3. The MME starts timer T3460 upon sending the SECURITY MODE COMMAND message.
+
+Postconditions:
+1. The MME and UE return to a stable state after the NAS security mode control procedure is completed.
+2. Any timers (e.g., T3460) are stopped or reset as per the specification.
+3. The MME and UE continue to operate normally without any adverse effects from the test.
+==================================================
+
+
+Test Procedure for Sentence 4:
+Original Extracted Information:
+Condition event(s): Security mode control procedure is initiated to take into use the EPS security context created after a successful execution of the EPS authentication procedure, upon receipt of TRACKING AREA UPDATE REQUEST message including a GPRS ciphering key sequence number IE
+Expected operation(s): Reset the downlink NAS COUNT counter, use it to integrity protect the initial SECURITY MODE COMMAND message
+Relationship(s): Specific initiation conditions trigger counter reset and message protection
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 4 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the MME (Mobility Management Entity) are in a state where the EPS authentication procedure has been successfully executed, resulting in the creation of an EPS security context.
+2. The UE is capable of sending and receiving NAS (Non-Access Stratum) messages.
+3. The MME is configured to initiate the Security Mode Control procedure upon receiving a TRACKING AREA UPDATE REQUEST message with a GPRS ciphering key sequence number IE.
+
+Test Steps:
+1. The UE sends a TRACKING AREA UPDATE REQUEST message to the MME, including a GPRS ciphering key sequence number IE.
+2. The MME receives the TRACKING AREA UPDATE REQUEST message and identifies the presence of the GPRS ciphering key sequence number IE.
+3. The MME initiates the Security Mode Control procedure to take into use the EPS security context created after the successful EPS authentication procedure.
+4. The MME resets the downlink NAS COUNT counter as part of the Security Mode Control procedure.
+5. The MME uses the reset downlink NAS COUNT counter to integrity protect the initial SECURITY MODE COMMAND message.
+6. The MME sends the SECURITY MODE COMMAND message to the UE.
+7. The UE receives the SECURITY MODE COMMAND message and verifies the integrity protection using the EPS security context.
+
+Expected Results:
+1. The MME correctly identifies the GPRS ciphering key sequence number IE in the TRACKING AREA UPDATE REQUEST message.
+2. The MME initiates the Security Mode Control procedure upon receiving the TRACKING AREA UPDATE REQUEST message with the GPRS ciphering key sequence number IE.
+3. The MME resets the downlink NAS COUNT counter as expected.
+4. The MME uses the reset downlink NAS COUNT counter to integrity protect the initial SECURITY MODE COMMAND message.
+5. The UE successfully verifies the integrity protection of the SECURITY MODE COMMAND message using the EPS security context.
+
+Postconditions:
+1. The UE and MME are in a state where the Security Mode Control procedure has been successfully completed.
+2. The EPS security context is in use for subsequent NAS message exchanges between the UE and MME.
+3. The downlink NAS COUNT counter is reset and ready for use in future NAS message integrity protection.
+==================================================
+
+
+Test Procedure for Sentence 5:
+Original Extracted Information:
+Condition event(s): MME initiates the NAS security mode control procedure
+Expected operation(s): Send the SECURITY MODE COMMAND message unciphered, integrity protect the message with the NAS integrity key based on KASME or mapped K'ASME
+Relationship(s): Initiation triggers specific message handling
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 5 Behavior
+
+Preconditions:
+1. The MME and UE are in a state where the NAS security mode control procedure can be initiated (e.g., after successful NAS registration).
+2. The MME has the necessary security context (KASME or mapped K'ASME) to perform integrity protection.
+3. The UE is in a state where it can receive and process NAS messages.
+
+Test Steps:
+1. Initiate a scenario that would require the MME to initiate the NAS security mode control procedure (e.g., after a successful NAS registration or during a re-establishment procedure).
+2. Monitor the MME to ensure it initiates the NAS security mode control procedure by sending the SECURITY MODE COMMAND message.
+3. Capture the SECURITY MODE COMMAND message sent by the MME.
+4. Verify that the SECURITY MODE COMMAND message is sent unciphered.
+5. Check the integrity protection of the SECURITY MODE COMMAND message using the NAS integrity key derived from KASME or mapped K'ASME.
+
+Expected Results:
+1. The MME initiates the NAS security mode control procedure by sending the SECURITY MODE COMMAND message.
+2. The SECURITY MODE COMMAND message is sent unciphered.
+3. The SECURITY MODE COMMAND message is integrity protected with the NAS integrity key based on KASME or mapped K'ASME.
+
+Postconditions:
+1. The UE and MME return to their normal operational state after the test.
+2. Any temporary security contexts or keys used during the test are properly disposed of or reset.
+==================================================
+
+
+Test Procedure for Sentence 6:
+Original Extracted Information:
+Condition event(s): Security mode control procedure is initiated during specific procedures (attach, tracking area updating, service request) for emergency bearer services or access to RLOS if no valid EPS security context is available
+Expected operation(s): Create a locally generated KASME, send the SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Relationship(s): Specific initiation conditions trigger KASME creation and message configuration
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 6 Behavior
+
+Preconditions:
+1. The UE is in an idle state with no valid EPS security context.
+2. The network is configured to support emergency bearer services and access to RLOS (Restricted Local Operator Services).
+3. The UE and network are configured to initiate the security mode control procedure during specific procedures (attach, tracking area updating, service request).
+
+Test Steps:
+1. Initiate an emergency attach procedure from the UE to the network.
+2. Observe the network's response to the emergency attach request.
+3. Verify that the network initiates the security mode control procedure by sending the SECURITY MODE COMMAND message.
+4. Check the contents of the SECURITY MODE COMMAND message to ensure it includes:
+   a. A KSI value in the NAS key set identifier IE set to "000".
+   b. EIA0 and EEA0 as the selected NAS security algorithms.
+5. Observe the UE's response to the SECURITY MODE COMMAND message.
+
+Expected Results:
+1. The network should initiate the security mode control procedure during the emergency attach procedure.
+2. The SECURITY MODE COMMAND message should be sent by the network, including the KSI value set to "000" and EIA0 and EEA0 as the selected NAS security algorithms.
+3. The UE should respond to the SECURITY MODE COMMAND message appropriately, indicating acceptance of the security context.
+
+Postconditions:
+1. The UE should be successfully attached to the network with the emergency bearer service established.
+2. The EPS security context should be locally generated with the KASME created by the network.
+3. The network and UE should be in a secure communication state using the specified security algorithms (EIA0 and EEA0).
+==================================================
+
+
+Test Procedure for Sentence 7:
+Original Extracted Information:
+Condition event(s): UE processes a SECURITY MODE COMMAND message including a KSI value in the NAS key set identifier IE set to "000" and EIA0 and EEA0 as the selected NAS security algorithms
+Expected operation(s): Create a locally generated KASME if accepted
+Relationship(s): Message processing triggers KASME creation if accepted
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 7 Behavior
+
+Preconditions:
+1. The UE is in an idle state and not currently connected to any network.
+2. The UE has a valid subscriber identity module (SIM) with necessary authentication credentials.
+3. The network environment is configured to send a SECURITY MODE COMMAND message with specific parameters.
+4. The UE and network are configured to use NAS security algorithms EIA0 and EEA0.
+
+Test Steps:
+1. Initiate a network attach procedure by sending an ATTACH REQUEST message from the UE to the network.
+2. The network responds with an ATTACH ACCEPT message, initiating the security mode procedure.
+3. The network sends a SECURITY MODE COMMAND message to the UE with the following parameters:
+   - NAS key set identifier IE set to "000"
+   - Selected NAS security algorithms set to EIA0 and EEA0
+4. The UE processes the SECURITY MODE COMMAND message.
+5. Observe the UE's response to the SECURITY MODE COMMAND message.
+
+Expected Results:
+1. The UE should accept the SECURITY MODE COMMAND message.
+2. Upon acceptance, the UE should create a locally generated KASME (Key for Access Security Management Entity).
+3. The UE should send a SECURITY MODE COMPLETE message back to the network, indicating successful processing of the SECURITY MODE COMMAND message.
+
+Postconditions:
+1. The UE remains in a connected state with the network.
+2. The network and UE are in a secure communication state using the NAS security algorithms EIA0 and EEA0.
+3. The locally generated KASME is stored and used for subsequent security procedures.
+==================================================
+
+
+Test Procedure for Sentence 8:
+Original Extracted Information:
+Condition event(s): MME does not have the valid current EPS security context indicated by the UE
+Expected operation(s): Indicate the use of the new mapped EPS security context, set the KSI value "000" if EIA0 and EEA0 are selected
+Relationship(s): Lack of valid context triggers specific context use and KSI setting
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 8 Behavior
+
+Preconditions:
+1. The UE is registered with the network and has an active EPS security context.
+2. The MME has a valid EPS security context for the UE.
+3. The UE and MME are configured to support EIA0 and EEA0 algorithms.
+
+Test Steps:
+1. Initiate a procedure to invalidate the current EPS security context at the MME (e.g., by forcing a context reset or simulating a context loss).
+2. Trigger a signaling message from the UE to the MME that requires security context validation (e.g., a Service Request or Tracking Area Update).
+3. Observe the response from the MME to the UE.
+
+Expected Results:
+1. The MME should indicate the use of a new mapped EPS security context in its response to the UE.
+2. The KSI (Key Set Identifier) value in the MME's response should be set to "000" if EIA0 and EEA0 are selected.
+
+Postconditions:
+1. Restore the original EPS security context at the MME if necessary.
+2. Ensure the UE and MME are in a stable state with a valid EPS security context.
+==================================================
+
+
+Test Procedure for Sentence 9:
+Original Extracted Information:
+Condition event(s): MME wants to take the native EPS security context into use
+Expected operation(s): Include the eKSI that indicates the native EPS security context in the SECURITY MODE COMMAND message
+Relationship(s): Desire to use native context triggers eKSI inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 9 Behavior
+
+Preconditions:
+1. The MME and UE are in a state where an EPS security context is established.
+2. The MME has a native EPS security context available for use.
+3. The UE is capable of handling SECURITY MODE COMMAND messages.
+
+Test Steps:
+1. Indirectly trigger the condition event by causing the MME to decide to take the native EPS security context into use. This can be done by simulating a scenario where the MME determines that the native EPS security context is the preferred or required context for the current session.
+2. Observe the MME's behavior to ensure it includes the eKSI that indicates the native EPS security context in the SECURITY MODE COMMAND message.
+3. Capture and analyze the SECURITY MODE COMMAND message sent by the MME to the UE.
+
+Expected Results:
+1. The SECURITY MODE COMMAND message sent by the MME should contain the eKSI that indicates the native EPS security context.
+2. The UE should respond to the SECURITY MODE COMMAND message with a SECURITY MODE COMPLETE message, indicating successful processing of the command.
+
+Postconditions:
+1. The UE and MME should be in a secure communication state using the native EPS security context.
+2. Any temporary test data or configurations should be cleaned up to restore the environment to its original state.
+==================================================
+
+
+Test Procedure for Sentence 10:
+Original Extracted Information:
+Condition event(s): MME supports handling of UE additional security capabilities and the UE included a UE additional security capability IE in the message to the network
+Expected operation(s): Include the replayed additional security capabilities of the UE
+Relationship(s): Support and inclusion trigger capability replay inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 10 Behavior
+
+Preconditions:
+1. The MME is configured to support handling of UE additional security capabilities.
+2. The UE is configured to include the UE additional security capability IE in messages to the network.
+3. The test environment is set up with necessary network elements (e.g., SGW, PGW) and interfaces (e.g., S1, S5/S8) to facilitate the test scenario.
+
+Test Steps:
+1. Initiate a UE attach procedure by sending an Attach Request message from the UE to the MME.
+2. Ensure that the Attach Request message includes the UE additional security capability IE.
+3. Observe the MME's response to the Attach Request message.
+4. Verify that the MME includes the replayed additional security capabilities of the UE in its response message (e.g., Attach Accept).
+
+Expected Results:
+1. The MME correctly processes the Attach Request message containing the UE additional security capability IE.
+2. The MME includes the replayed additional security capabilities of the UE in its response message.
+
+Postconditions:
+1. The UE and MME are in a connected state after the successful completion of the attach procedure.
+2. The test environment is restored to its initial state, if necessary, to prepare for subsequent tests.
+==================================================
+
+
+Test Procedure for Sentence 11:
+Original Extracted Information:
+Condition event(s): MME may initiate a SECURITY MODE COMMAND to change the NAS security algorithms for a current EPS security context already in use
+Expected operation(s): Re-derive the NAS keys from KASME with the new NAS algorithm identities as input, provide the new NAS algorithm identities within the SECURITY MODE COMMAND message
+Relationship(s): Initiation to change algorithms triggers key re-derivation and message update
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 11 Behavior
+
+Preconditions:
+1. The MME and UE are in an established EPS security context with NAS security algorithms already in use.
+2. The MME has the capability to initiate a SECURITY MODE COMMAND message.
+3. The UE is capable of processing and responding to a SECURITY MODE COMMAND message.
+4. The NAS security algorithms supported by the UE and MME are known and configured.
+
+Test Steps:
+1. The MME initiates a SECURITY MODE COMMAND message to change the NAS security algorithms for the current EPS security context.
+2. The MME includes the new NAS algorithm identities within the SECURITY MODE COMMAND message.
+3. The UE receives the SECURITY MODE COMMAND message and processes it.
+4. The UE re-derives the NAS keys from KASME using the new NAS algorithm identities as input.
+5. The UE sends a SECURITY MODE COMPLETE message to the MME to acknowledge the change.
+
+Expected Results:
+1. The MME successfully sends the SECURITY MODE COMMAND message with the new NAS algorithm identities.
+2. The UE correctly processes the SECURITY MODE COMMAND message and re-derives the NAS keys from KASME with the new NAS algorithm identities.
+3. The UE sends the SECURITY MODE COMPLETE message to the MME, indicating successful processing of the command.
+4. The EPS security context is updated with the new NAS security algorithms.
+
+Postconditions:
+1. The EPS security context between the MME and UE is updated with the new NAS security algorithms.
+2. The UE and MME can continue secure communication using the updated NAS security algorithms.
+3. Any temporary data or state related to the test is cleared or reset to the original state before the test.
+==================================================
+
+
+Test Procedure for Sentence 12:
+Original Extracted Information:
+Condition event(s): MME is initiating a SECURITY MODE COMMAND during an ongoing attach or tracking area updating procedure and the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message is received without integrity protection or does not successfully pass the integrity check
+Expected operation(s): Calculate the HASHMME of the entire plain ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message, include the HASHMME in the SECURITY MODE COMMAND message
+Relationship(s): Lack of integrity or failed check triggers HASHMME calculation and inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 12 Behavior
+
+Preconditions:
+1. The MME and UE are in a state where an attach or tracking area updating procedure can be initiated.
+2. The MME is configured to send a SECURITY MODE COMMAND during the attach or tracking area updating procedure.
+3. The UE is configured to send an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+4. The MME is capable of performing integrity checks on received messages.
+5. The MME is capable of calculating the HASHMME and including it in the SECURITY MODE COMMAND message.
+
+Test Steps:
+1. Initiate an attach or tracking area updating procedure by sending an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message from the UE to the MME.
+2. Modify the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message to ensure it does not have integrity protection or fails the integrity check at the MME.
+3. Observe the MME's response to the modified message.
+4. Check if the MME initiates a SECURITY MODE COMMAND message.
+5. Inspect the SECURITY MODE COMMAND message to verify that the HASHMME of the entire plain ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message is included.
+
+Expected Results:
+1. The MME should detect the lack of integrity protection or the failed integrity check on the received ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+2. The MME should initiate a SECURITY MODE COMMAND message in response to the condition event.
+3. The SECURITY MODE COMMAND message should include the HASHMME of the entire plain ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+
+Postconditions:
+1. The MME and UE should return to their initial states before the test procedure was initiated.
+2. Any temporary modifications made to the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message should be reverted.
+3. The integrity protection mechanisms should be restored to their original configurations.
+==================================================
+
+
+Test Procedure for Sentence 13:
+Original Extracted Information:
+Condition event(s): MME indicated in the SECURITY MODE COMMAND message that the IMEISV is requested
+Expected operation(s): Include its IMEISV in the SECURITY MODE COMPLETE message
+Relationship(s): Request triggers IMEISV inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 13 Behavior
+
+Preconditions:
+1. The MME (Mobility Management Entity) and the UE (User Equipment) are in a state where a SECURITY MODE COMMAND message can be sent and received.
+2. The UE has an IMEISV (International Mobile Equipment Identity Software Version) that can be included in messages.
+3. The MME is configured to request the IMEISV in the SECURITY MODE COMMAND message.
+
+Test Steps:
+1. Initiate a security mode procedure by sending a SECURITY MODE COMMAND message from the MME to the UE.
+2. Ensure that the SECURITY MODE COMMAND message includes the indication that the IMEISV is requested.
+3. Observe the UE's response to the SECURITY MODE COMMAND message.
+4. Capture and analyze the SECURITY MODE COMPLETE message sent by the UE to the MME.
+
+Expected Results:
+1. The SECURITY MODE COMPLETE message from the UE should include the IMEISV as requested by the MME in the SECURITY MODE COMMAND message.
+2. The IMEISV included in the SECURITY MODE COMPLETE message should match the IMEISV of the UE.
+
+Postconditions:
+1. The security mode procedure should be successfully completed, with the UE and MME in a secure communication state.
+2. The captured messages (SECURITY MODE COMMAND and SECURITY MODE COMPLETE) should be stored for future reference or analysis.
+==================================================
+
+
+Test Procedure for Sentence 14:
+Original Extracted Information:
+Condition event(s): UE has set the RACS bit to "RACS supported" and the URCIDA bit to "UE radio capability ID available" in the UE network capability IE and UE radio capability ID availability IE
+Expected operation(s): Request the UE to include its UE radio capability ID in the SECURITY MODE COMPLETE message
+Relationship(s): Specific settings trigger capability ID request
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 14 Behavior
+
+Preconditions:
+1. The UE is powered on and registered with the network.
+2. The network is configured to support the RACS (Radio Access Capability Signaling) feature.
+3. The UE has the capability to set the RACS bit to "RACS supported" and the URCIDA bit to "UE radio capability ID available" in the UE network capability IE and UE radio capability ID availability IE.
+
+Test Steps:
+1. The network sends a SECURITY MODE COMMAND message to the UE.
+2. The UE processes the SECURITY MODE COMMAND message and sets the RACS bit to "RACS supported" and the URCIDA bit to "UE radio capability ID available" in the UE network capability IE and UE radio capability ID availability IE.
+3. The UE sends a SECURITY MODE COMPLETE message back to the network.
+4. The network receives the SECURITY MODE COMPLETE message and checks if the UE radio capability ID is included in the message.
+
+Expected Results:
+1. The UE correctly sets the RACS bit to "RACS supported" and the URCIDA bit to "UE radio capability ID available" in the UE network capability IE and UE radio capability ID availability IE.
+2. The SECURITY MODE COMPLETE message sent by the UE includes the UE radio capability ID as expected.
+
+Postconditions:
+1. The UE remains registered with the network.
+2. The network logs the test results for further analysis.
+==================================================
+
+
+Test Procedure for Sentence 15:
+Original Extracted Information:
+Condition event(s): UE does not have an applicable network-assigned UE radio capability ID for the current UE radio configuration in the selected PLMN but has an applicable manufacturer-assigned UE radio capability ID
+Expected operation(s): Include the applicable manufacturer-assigned UE radio capability ID in the UE radio capability ID IE of the SECURITY MODE COMPLETE message
+Relationship(s): Lack of network-assigned ID triggers manufacturer-assigned ID inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 15 Behavior
+
+Preconditions:
+1. The UE is powered on and registered to a selected PLMN.
+2. The UE has a valid manufacturer-assigned UE radio capability ID.
+3. The network does not have an applicable network-assigned UE radio capability ID for the current UE radio configuration.
+4. The UE is in a state where it can initiate or respond to a SECURITY MODE COMMAND message.
+
+Test Steps:
+1. Initiate a SECURITY MODE COMMAND message from the network to the UE.
+2. Ensure that the SECURITY MODE COMMAND message does not include an applicable network-assigned UE radio capability ID for the current UE radio configuration.
+3. Observe the UE's response to the SECURITY MODE COMMAND message.
+4. Check the SECURITY MODE COMPLETE message sent by the UE to verify the inclusion of the applicable manufacturer-assigned UE radio capability ID in the UE radio capability ID IE.
+
+Expected Results:
+1. The UE receives the SECURITY MODE COMMAND message without an applicable network-assigned UE radio capability ID.
+2. The UE includes the applicable manufacturer-assigned UE radio capability ID in the UE radio capability ID IE of the SECURITY MODE COMPLETE message.
+
+Postconditions:
+1. The UE remains registered to the selected PLMN.
+2. The network and UE are in a secure communication state after the successful completion of the security mode procedure.
+==================================================
+
+
+Test Procedure for Sentence 16:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMMAND message includes a HASHMME
+Expected operation(s): Compare HASHMME with a locally calculated hash value, include the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS message container IE if different
+Relationship(s): HASHMME inclusion triggers comparison and potential message inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 16 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and MME (Mobility Management Entity) are in a state where a SECURITY MODE COMMAND message can be sent.
+2. The MME is configured to include a HASHMME in the SECURITY MODE COMMAND message.
+3. The UE has the capability to calculate a locally derived hash value and compare it with the HASHMME.
+4. The UE is in a state where it can send an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+
+Test Steps:
+1. Send a SECURITY MODE COMMAND message from the MME to the UE, ensuring that the message includes a HASHMME.
+2. The UE receives the SECURITY MODE COMMAND message and extracts the HASHMME.
+3. The UE calculates a locally derived hash value based on the same input parameters used by the MME.
+4. The UE compares the locally derived hash value with the HASHMME received from the MME.
+5. If the locally derived hash value does not match the HASHMME, the UE includes the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS message container IE.
+6. The UE sends the modified ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message with the Replayed NAS message container IE to the MME.
+7. Observe the MME's response to the modified ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+
+Expected Results:
+1. The SECURITY MODE COMMAND message is received by the UE with the HASHMME included.
+2. The UE correctly calculates a locally derived hash value.
+3. The UE performs a comparison between the locally derived hash value and the HASHMME.
+4. If the hash values do not match, the UE includes the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS message container IE.
+5. The modified ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message is sent to the MME.
+6. The MME processes the modified message and responds accordingly.
+
+Postconditions:
+1. The UE and MME return to their initial states before the test.
+2. Any temporary configurations or settings made during the test are reverted to their original values.
+3. Logs and records of the test are saved for future reference and analysis.
+==================================================
+
+
+Test Procedure for Sentence 17:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMMAND message can be accepted
+Expected operation(s): Take the EPS security context indicated in the message into use, reset the uplink NAS COUNT counter if specific conditions are met
+Relationship(s): Acceptance triggers context use and counter reset if conditions are met
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 17 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the MME (Mobility Management Entity) are in a state where a SECURITY MODE COMMAND message can be sent and received.
+2. The EPS security context to be used is pre-configured and available in the MME.
+3. The uplink NAS COUNT counter is initialized and not in a reset state.
+
+Test Steps:
+1. Send a SECURITY MODE COMMAND message from the MME to the UE, containing the pre-configured EPS security context.
+2. Indirectly trigger the condition event by ensuring the UE receives the SECURITY MODE COMMAND message.
+3. Observe the UE's response to the SECURITY MODE COMMAND message.
+4. Check the UE's internal state to verify if the EPS security context has been taken into use.
+5. Verify if the uplink NAS COUNT counter has been reset based on the specific conditions mentioned in the SECURITY MODE COMMAND message.
+
+Expected Results:
+1. The UE should accept the SECURITY MODE COMMAND message.
+2. The UE should take the EPS security context indicated in the message into use.
+3. The uplink NAS COUNT counter should be reset if the specific conditions are met.
+
+Postconditions:
+1. The UE and MME should remain in a stable state after the test.
+2. The EPS security context used during the test should be restored to its original state if necessary.
+3. The uplink NAS COUNT counter should be verified to be in the expected state (reset or not) based on the test conditions.
+==================================================
+
+
+Test Procedure for Sentence 18:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMMAND message can be accepted and does not indicate the "null integrity protection algorithm" EIA0 as the selected NAS integrity algorithm
+Expected operation(s): Set the downlink NAS COUNT of the new EPS security context to 0 if the message has been successfully integrity checked using an estimated downlink NAS COUNT equal 0, otherwise set it to the downlink NAS COUNT used for the successful integrity checking
+Relationship(s): Acceptance and non-null algorithm trigger specific counter settings
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 18 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the MME (Mobility Management Entity) are in a state where a SECURITY MODE COMMAND message can be sent and received.
+2. The MME is configured to select a non-null integrity protection algorithm (EIA) other than EIA0 for the SECURITY MODE COMMAND message.
+3. The UE and MME have established a NAS (Non-Access Stratum) security context.
+
+Test Steps:
+1. The MME sends a SECURITY MODE COMMAND message to the UE, selecting a non-null integrity protection algorithm (EIA) other than EIA0.
+2. The UE receives the SECURITY MODE COMMAND message and attempts to integrity check the message using an estimated downlink NAS COUNT of 0.
+3. If the integrity check is successful, the UE sets the downlink NAS COUNT of the new EPS (Evolved Packet System) security context to 0.
+4. If the integrity check fails, the UE attempts to integrity check the message using the downlink NAS COUNT used in the previous EPS security context.
+5. If the integrity check is successful with the previous downlink NAS COUNT, the UE sets the downlink NAS COUNT of the new EPS security context to the downlink NAS COUNT used for the successful integrity checking.
+6. The UE sends a SECURITY MODE COMPLETE message to the MME to acknowledge the successful security mode command.
+
+Expected Results:
+1. The SECURITY MODE COMMAND message is successfully received and processed by the UE.
+2. The UE correctly sets the downlink NAS COUNT of the new EPS security context based on the success or failure of the integrity check.
+3. The SECURITY MODE COMPLETE message is sent by the UE to the MME, indicating successful completion of the security mode command.
+
+Postconditions:
+1. The UE and MME are in a state where the new EPS security context is active and the downlink NAS COUNT is correctly set.
+2. The test environment is restored to its initial state, ready for subsequent tests.
+==================================================
+
+
+Test Procedure for Sentence 19:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMMAND message can be accepted
+Expected operation(s): Send a SECURITY MODE COMPLETE message integrity protected and ciphered with the selected NAS integrity and ciphering algorithms
+Relationship(s): Acceptance triggers specific message protection and ciphering
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 19 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the MME (Mobility Management Entity) are in a state where a security context can be established.
+2. The NAS (Non-Access Stratum) layer is initialized and ready to process messages.
+3. The MME has the necessary security algorithms available for selection.
+
+Test Steps:
+1. The MME sends a SECURITY MODE COMMAND message to the UE, specifying the selected NAS integrity and ciphering algorithms.
+2. The UE processes the SECURITY MODE COMMAND message and determines that it can accept the security mode.
+3. The UE sends a SECURITY MODE COMPLETE message back to the MME.
+4. The MME receives the SECURITY MODE COMPLETE message and verifies that it is integrity protected and ciphered with the selected NAS integrity and ciphering algorithms.
+
+Expected Results:
+1. The SECURITY MODE COMPLETE message is received by the MME.
+2. The SECURITY MODE COMPLETE message is integrity protected and ciphered with the selected NAS integrity and ciphering algorithms.
+
+Postconditions:
+1. The security context is successfully established between the UE and the MME.
+2. The NAS layer is now operating with the selected security algorithms.
+==================================================
+
+
+Test Procedure for Sentence 20:
+Original Extracted Information:
+Condition event(s): MME indicated in the SECURITY MODE COMMAND message that the IMEISV is requested
+Expected operation(s): Include its IMEISV in the SECURITY MODE COMPLETE message
+Relationship(s): Request triggers IMEISV inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 20 Behavior
+
+Preconditions:
+1. The MME and UE are in a state where a SECURITY MODE COMMAND message can be sent.
+2. The UE has a valid IMEISV that can be included in messages.
+3. The MME is configured to request the IMEISV in the SECURITY MODE COMMAND message.
+
+Test Steps:
+1. Initiate a security mode procedure by sending a SECURITY MODE COMMAND message from the MME to the UE.
+2. Ensure that the SECURITY MODE COMMAND message includes the indication that the IMEISV is requested.
+3. Observe the response from the UE, which should be a SECURITY MODE COMPLETE message.
+4. Check the SECURITY MODE COMPLETE message to verify that the UE has included its IMEISV as requested.
+
+Expected Results:
+1. The SECURITY MODE COMMAND message is received by the UE with the indication that the IMEISV is requested.
+2. The UE responds with a SECURITY MODE COMPLETE message.
+3. The SECURITY MODE COMPLETE message includes the UE's IMEISV.
+
+Postconditions:
+1. The security mode procedure is completed successfully.
+2. The MME and UE are in a secure communication state.
+==================================================
+
+
+Test Procedure for Sentence 21:
+Original Extracted Information:
+Condition event(s): MME indicated in the SECURITY MODE COMMAND message that the UE radio capability ID is requested
+Expected operation(s): Include the applicable network-assigned or manufacturer-assigned UE radio capability ID in the UE radio capability ID IE of the SECURITY MODE COMPLETE message
+Relationship(s): Request triggers capability ID inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 21 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and MME (Mobility Management Entity) are in a state where a SECURITY MODE COMMAND message can be sent and received.
+2. The MME is configured to request the UE radio capability ID in the SECURITY MODE COMMAND message.
+3. The UE has a valid network-assigned or manufacturer-assigned UE radio capability ID.
+
+Test Steps:
+1. Initiate a security mode procedure by sending a SECURITY MODE COMMAND message from the MME to the UE.
+2. Ensure that the SECURITY MODE COMMAND message includes the indication that the UE radio capability ID is requested.
+3. Observe the UE's response to the SECURITY MODE COMMAND message.
+4. Capture and analyze the SECURITY MODE COMPLETE message sent by the UE in response to the SECURITY MODE COMMAND message.
+
+Expected Results:
+1. The SECURITY MODE COMPLETE message sent by the UE should include the UE radio capability ID Information Element (IE).
+2. The UE radio capability ID included in the SECURITY MODE COMPLETE message should match the applicable network-assigned or manufacturer-assigned UE radio capability ID.
+
+Postconditions:
+1. The security mode procedure should be successfully completed, with the UE and MME in a secure communication state.
+2. The captured SECURITY MODE COMPLETE message should be stored for future reference or analysis.
+==================================================
+
+
+Test Procedure for Sentence 22:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMMAND message includes a HASHMME
+Expected operation(s): Compare HASHMME with a locally calculated hash value, include the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS message container IE if different
+Relationship(s): HASHMME inclusion triggers comparison and potential message inclusion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 22 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and MME (Mobility Management Entity) are in a state where an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST can be initiated.
+2. The MME is configured to send a SECURITY MODE COMMAND message with a HASHMME included.
+3. The UE and MME have the necessary cryptographic keys and algorithms to calculate and verify the HASHMME.
+
+Test Steps:
+1. Initiate an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST from the UE to the MME.
+2. The MME receives the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST and prepares to send a SECURITY MODE COMMAND message.
+3. The MME includes a HASHMME in the SECURITY MODE COMMAND message and sends it to the UE.
+4. The UE receives the SECURITY MODE COMMAND message and extracts the HASHMME.
+5. The UE calculates a local hash value based on the received ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+6. The UE compares the received HASHMME with the locally calculated hash value.
+7. If the HASHMME and the locally calculated hash value are different, the UE includes the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message in the Replayed NAS message container IE.
+8. The UE sends the SECURITY MODE COMPLETE message, including the Replayed NAS message container IE if applicable, back to the MME.
+
+Expected Results:
+1. The MME receives the SECURITY MODE COMPLETE message.
+2. If the HASHMME and the locally calculated hash value were different, the MME verifies the presence of the Replayed NAS message container IE in the SECURITY MODE COMPLETE message.
+3. The MME confirms that the Replayed NAS message container IE contains the complete ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+
+Postconditions:
+1. The UE and MME return to their normal operational states.
+2. Any temporary configurations or settings used during the test are reverted to their original values.
+==================================================
+
+
+Test Procedure for Sentence 23:
+Original Extracted Information:
+Condition event(s): MME receives the SECURITY MODE COMPLETE message
+Expected operation(s): Stop timer T3460, integrity protect and encipher all signalling messages with the selected NAS integrity and ciphering algorithms
+Relationship(s): Message receipt triggers timer stop and message protection
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 23 Behavior
+
+Preconditions:
+1. The MME is initialized and connected to the SGSN/eNodeB.
+2. The MME has received the SECURITY MODE COMMAND message and is awaiting the SECURITY MODE COMPLETE message.
+3. Timer T3460 is running in the MME.
+4. The NAS integrity and ciphering algorithms are selected and ready for use.
+
+Test Steps:
+1. Send the SECURITY MODE COMPLETE message from the UE to the MME.
+2. Monitor the MME for the following actions:
+   a. Stop of timer T3460.
+   b. Integrity protection and encipherment of subsequent signalling messages using the selected NAS integrity and ciphering algorithms.
+
+Expected Results:
+1. Timer T3460 is stopped upon receipt of the SECURITY MODE COMPLETE message.
+2. All subsequent signalling messages sent by the MME are integrity protected and enciphered using the selected NAS integrity and ciphering algorithms.
+
+Postconditions:
+1. The MME is in a secure state with all signalling messages protected.
+2. Timer T3460 is no longer active.
+==================================================
+
+
+Test Procedure for Sentence 24:
+Original Extracted Information:
+Condition event(s): SECURITY MODE COMPLETE message contains a Replayed NAS container message IE with an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message
+Expected operation(s): Complete the ongoing attach or tracking area updating procedure by considering the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message contained in the Replayed NAS message container IE as the message that triggered the procedure
+Relationship(s): Message container inclusion triggers procedure completion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 24 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the MME (Mobility Management Entity) are in a state where an attach or tracking area updating procedure can be initiated.
+2. The MME is configured to handle the SECURITY MODE COMPLETE message with a Replayed NAS container message IE.
+3. The UE is capable of sending an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+4. The MME is capable of processing the Replayed NAS container message IE and completing the ongoing attach or tracking area updating procedure.
+
+Test Steps:
+1. Initiate an attach or tracking area updating procedure by sending an ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message from the UE to the MME.
+2. The MME responds with a SECURITY MODE COMMAND message to the UE, initiating the security mode procedure.
+3. The UE processes the SECURITY MODE COMMAND and prepares to send a SECURITY MODE COMPLETE message with a Replayed NAS container message IE.
+4. The UE sends the SECURITY MODE COMPLETE message to the MME, including the Replayed NAS container message IE with the original ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message.
+5. Observe the MME's response to the SECURITY MODE COMPLETE message.
+
+Expected Results:
+1. The MME should recognize the Replayed NAS container message IE in the SECURITY MODE COMPLETE message.
+2. The MME should complete the ongoing attach or tracking area updating procedure by considering the ATTACH REQUEST or TRACKING AREA UPDATE REQUEST message contained in the Replayed NAS message container IE as the message that triggered the procedure.
+3. The MME should send the appropriate response (e.g., ATTACH ACCEPT or TRACKING AREA UPDATE ACCEPT) to the UE, indicating successful completion of the procedure.
+
+Postconditions:
+1. The UE and MME should be in a state where the attach or tracking area updating procedure is successfully completed.
+2. The MME should have processed the Replayed NAS container message IE and used it to complete the procedure as expected.
+3. Any temporary resources allocated during the test should be released, and the system should return to a stable state.
+==================================================
+
+
+Test Procedure for Sentence 25:
+Original Extracted Information:
+Condition event(s): Security mode command cannot be accepted
+Expected operation(s): Send a SECURITY MODE REJECT message, contain an EMM cause indicating a mismatch or rejection
+Relationship(s): Non-acceptance triggers rejection message with specific cause
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 25 Behavior
+
+Preconditions:
+1. The UE (User Equipment) and the network are in a state where a Security Mode Command (SMC) can be initiated.
+2. The network is configured to send a Security Mode Command to the UE.
+3. The UE is configured to simulate a condition where it cannot accept the Security Mode Command.
+
+Test Steps:
+1. Initiate the Security Mode Command procedure by the network sending an SMC message to the UE.
+2. Simulate a condition in the UE where it cannot accept the Security Mode Command, such as a mismatch in security parameters or a rejection condition.
+3. Observe the UE's response to the SMC message.
+
+Expected Results:
+1. The UE sends a SECURITY MODE REJECT message to the network.
+2. The SECURITY MODE REJECT message contains an EMM (Evolved Multi-Layer Management) cause indicating a mismatch or rejection, as specified in the 3GPP TS 24.301 specification.
+
+Postconditions:
+1. The network and UE return to a state where they can resume normal operations.
+2. Any simulated conditions in the UE are reset to their original configurations.
+==================================================
+
+
+Test Procedure for Sentence 26:
+Original Extracted Information:
+Condition event(s): MME receives the SECURITY MODE REJECT message
+Expected operation(s): Stop timer T3460, abort the ongoing procedure that triggered the initiation of the NAS security mode control procedure
+Relationship(s): Message receipt triggers timer stop and procedure abortion
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 26 Behavior
+
+Preconditions:
+1. The MME is in a state where it is ready to initiate the NAS security mode control procedure.
+2. The UE is connected to the network and is in a state where it can receive and send NAS messages.
+3. Timer T3460 is running, indicating that the NAS security mode control procedure has been initiated.
+
+Test Steps:
+1. Simulate the UE sending the SECURITY MODE REJECT message to the MME.
+2. Observe the MME's response to the SECURITY MODE REJECT message.
+3. Check the state of timer T3460 to verify if it has been stopped.
+4. Verify if the ongoing procedure that triggered the initiation of the NAS security mode control procedure has been aborted.
+
+Expected Results:
+1. Upon receiving the SECURITY MODE REJECT message, the MME should stop timer T3460.
+2. The ongoing procedure that triggered the initiation of the NAS security mode control procedure should be aborted.
+
+Postconditions:
+1. The MME should return to a state where it can handle other NAS procedures.
+2. The UE should remain connected to the network but should not be in a security mode that was being negotiated.
+==================================================
+
+
+Test Procedure for Sentence 27:
+Original Extracted Information:
+Condition event(s): Both the UE and the MME apply the EPS security context in use before the initiation of the security mode control procedure
+Expected operation(s): Protect the SECURITY MODE REJECT message and any other subsequent messages according to the rules in subclauses 4.4.4 and 4.4.5
+Relationship(s): Context application triggers message protection
+
+Generated Test Procedure:
+Test Procedure: Verification of Sentence 27 Behavior
+
+Preconditions:
+1. The UE and MME are in a state where an EPS security context is established and in use.
+2. The UE and MME are not currently in the process of a security mode control procedure.
+3. The UE and MME are connected and ready to exchange messages.
+
+Test Steps:
+1. Initiate a scenario where the UE and MME need to exchange messages that would typically trigger a security mode control procedure.
+2. Observe the UE and MME behavior to ensure that the EPS security context is applied before the initiation of the security mode control procedure.
+3. Send a SECURITY MODE REJECT message from the UE to the MME.
+4. Monitor the transmission of the SECURITY MODE REJECT message and any subsequent messages between the UE and MME.
+
+Expected Results:
+1. The SECURITY MODE REJECT message is protected according to the rules in subclauses 4.4.4 and 4.4.5 of the 3GPP TS 24.301 specification.
+2. Any subsequent messages exchanged between the UE and MME after the SECURITY MODE REJECT message are also protected according to the rules in subclauses 4.4.4 and 4.4.5.
+
+Postconditions:
+1. The UE and MME return to their previous state before the test was initiated.
+2. The EPS security context remains in use and is not compromised during the test.
+==================================================
